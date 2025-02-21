@@ -344,7 +344,7 @@
 
     <script>
         // Add letter-by-letter animation
-        const text = "W e l c o m e  T o   V I T   C l u b s";
+        const text = "W e l c o m e    T o     V I T     C l u b s";
         const welcomeText = document.getElementById('welcome-text');
         
         text.split('').forEach((char, i) => {
@@ -372,16 +372,16 @@
 
         function ClubsPage() {
             const [clubs] = useState([
-                { name: "Tech Club", description: "Explore the world of technology through coding, robotics, and innovative projects.", color: "#1a1a1a" },
-                { name: "Drama Club", description: "Express yourself through theater, improv, and dramatic performances.", color: "#333333" },
-                { name: "Sports Club", description: "Stay active and competitive with various sports activities and tournaments.", color: "#1a1a1a" },
-                { name: "Music Club", description: "Create and perform music, learn instruments, and collaborate with fellow musicians.", color: "#333333" },
-                { name: "Dance Club", description: "Learn different dance styles and showcase your moves at events.", color: "#1a1a1a" },
-                { name: "Art Club", description: "Express creativity through painting, sketching, and digital art.", color: "#333333" },
-                { name: "Book Club", description: "Share your love for literature and engage in thoughtful discussions.", color: "#1a1a1a" },
-                { name: "Photography Club", description: "Capture moments and learn professional photography techniques.", color: "#333333" },
-                { name: "Debate Club", description: "Develop public speaking skills and engage in intellectual discussions.", color: "#1a1a1a" },
-                { name: "Science Club", description: "Explore scientific concepts through experiments and projects.", color: "#333333" }
+                { name: "Team EPEC", description: "The Event Planning and Execution Committee (EPEC) is the Student Council at Vishwakarma Institute of Technology (VIT), Pune, responsible for organizing the institute's flagship events. Their vision is to create exemplary events that entertain, enlighten, and inspire people.", color: "#1a1a1a" },
+                { name: "MUN. VIT Pune", description: "The VIT Pune Model United Nations (MUN) Society is a prestigious student-led organization at Vishwakarma Institute of Technology, Pune. It provides a platform for students to engage in simulations of United Nations conferences, fostering skills in diplomacy, public speaking, and international relations.", color: "#333333" },
+                { name: "TED X VIT", description: "TEDxVITPune is an independently organized TEDx event hosted by the Vishwakarma Institute of Technology (VIT) in Pune. Established in April 2015, it has evolved into a premier platform for disseminating 'Ideas Worth Spreading' within the local community. Over the past nine editions, TEDxVITPune has brought together visionaries, thinkers, and doers from various disciplines across the country.", color: "#1a1a1a" },
+                { name: "Microsoft Learn Student Club", description: "The Microsoft Learn Student Club (MLSC) at Vishwakarma Institute of Technology (VIT), Pune, is a technical society dedicated to elevating the coding culture within the institute. The club focuses on mentoring and motivating its members to refine their critical thinking, logical reasoning, and coding skills, aiming to make them unrivaled in their pursuits", color: "#333333" },
+                { name: "Developers Student Club", description: "The Developer Student Club (DSC) at Vishwakarma Institute of Technology (VIT), Pune, is a community-driven initiative aimed at fostering innovation and technical proficiency among students. Affiliated with Google Developers, DSC VIT Pune provides a platform for students to learn, collaborate, and work on projects that address real-world challenges", color: "#1a1a1a" },
+                { name: "Zephyr", description: "Zephyr is the official dance crew of Vishwakarma Institute of Technology (VIT), Pune. The team is dedicated to expressing themselves through dance, aiming to create an exuberant atmosphere that promotes diversity and creativity across various dance forms. They aspire to craft unforgettable experiences for their audience while fostering unity and self-expression among their members.", color: "#333333" },
+                { name: "Team Griffin India", description: "Team Griffin India is the official aeromodelling club of Vishwakarma Institute of Technology (VIT), Pune. The team comprises passionate students dedicated to designing, building, and flying unmanned radio-controlled (RC) aircraft and drones. Their mission is to foster a vibrant community for drone enthusiasts within the college and contribute meaningfully to the advancement of the national drone ecosystem.", color: "#1a1a1a" },
+                { name: "Team Quark", description: "Team Quark is a dynamic technical club at Vishwakarma Institute of Technology (VIT), Pune, dedicated to educating members about emerging technologies and fostering a passion for innovation. The club emphasizes collaborative work, bringing together individuals from diverse backgrounds to create and implement ideas across multiple domains. The club actively participates in various events, securing notable positions like first place in the Codement_24 Hackathon", color: "#333333" },
+                { name: "The Investment Forum", description: "The Investment Forum (TIF) is the official investment club of Vishwakarma Institute of Technology (VIT), Pune. Established in 2018, TIF aims to educate students about various financial instruments, including mutual funds, bonds, and other money market assets, to help them achieve financial freedom.TIF focuses on imparting knowledge about investment strategies and financial planning to students, enabling them to make informed decisions.", color: "#1a1a1a" },
+                { name: "E-CELL VIT Pune", description: "The VIT Entrepreneurship Development Cell (V-EDC) at Vishwakarma Institute of Technology (VIT), Pune, is dedicated to fostering and promoting entrepreneurial spirit among students. V-EDC offers a variety of initiatives, including startup incubation, business strategy competitions, and startup pitch contests, all aimed at equipping students with the necessary skills and understanding to thrive in the competitive entrepreneurial landscape.", color: "#333333" }
             ]);
 
             useEffect(() => {
@@ -423,6 +423,12 @@
                         className: "club-image-placeholder rounded-lg mb-6",
                         style: { backgroundColor: `${club.color}20` }
                     }),
+                    React.createElement("img", { 
+                    src: "C:\Users\Anvay Anturkar\Downloads\WhatsApp Image 2025-02-22 at 1.18.20 AM (1).jpeg", 
+                    alt: club.name,
+                    className: "w-full h-48 object-cover rounded-lg mb-4" 
+                    }),
+                
                     React.createElement("h2", { className: "text-2xl font-bold mb-4 text-gray-800" }, club.name),
                     React.createElement("p", { className: "text-gray-600 flex-grow text-base" }, club.description),
                     React.createElement("button", { 
