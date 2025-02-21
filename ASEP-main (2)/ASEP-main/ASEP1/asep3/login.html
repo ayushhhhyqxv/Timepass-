@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ASEP3 Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="heading">Cabineet Vittoria</div>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="clubs.html">Clubs</a>
+        </nav>
+    </div>
+    
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script>
+        const { useState } = React;
+
+        function LoginPage() {
+            const [name, setName] = useState('');
+            const [email, setEmail] = useState('');
+            const [password, setPassword] = useState('');
+            const [error, setError] = useState('');
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (!email.endsWith('@vit.edu')) {
+                    setError('Email must be a @vit.edu domain');
+                    return;
+                }
+                setError(''); // Clear error if validation passes
+                alert('Login successful'); // Placeholder for login logic
+            };
+
+            return (
+                React.createElement("div", { className: "flex items-center justify-center h-screen bg-gray-100" },
+                    React.createElement("form", { onSubmit: handleSubmit, className: "bg-white p-6 rounded shadow-md w-full max-w-md" },
+                        React.createElement("h2", { className: "text-2xl mb-4 text-center" }, "Login/Signup"),
+                        error && React.createElement("p", { className: "text-red-500 mb-4" }, error),
+                        React.createElement("div", { className: "mb-4" },
+                            React.createElement("label", { className: "block mb-2 text-gray-700" }, "Name"),
+                            React.createElement("input", {
+                                type: "text",
+                                value: name,
+                                onChange: (e) => setName(e.target.value),
+                                className: "w-full p-2 border rounded"
+                            })
+                        ),
+                        React.createElement("div", { className: "mb-4" },
+                            React.createElement("label", { className: "block mb-2 text-gray-700" }, "Email"),
+                            React.createElement("input", {
+                                type: "email",
+                                value: email,
+                                onChange: (e) => setEmail(e.target.value),
+                                className: "w-full p-2 border rounded"
+                            })
+                        ),
+                        React.createElement("div", { className: "mb-4" },
+                            React.createElement("label", { className: "block mb-2 text-gray-700" }, "Password"),
+                            React.createElement("input", {
+                                type: "password",
+                                value: password,
+                                onChange: (e) => setPassword(e.target.value),
+                                className: "w-full p-2 border rounded"
+                            })
+                        ),
+                        React.createElement("button", { type: "submit", className: "w-full bg-blue-500 text-white p-2 rounded" }, "Submit"),
+                        React.createElement("p", { className: "mt-4 text-gray-600 text-center" }, 'Random loading text: "Loading your dashboard...", "Almost there..."')
+                    )
+                )
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(LoginPage));
+    </script>
+</body>
+</html>

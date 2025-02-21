@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar | Cabinet Vittoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0D0D0D;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #111;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            background: #222;
+            border-radius: 5px;
+        }
+
+        .nav-links .active {
+            background: #0066FF;
+        }
+
+        .hero {
+            padding: 50px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .events {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            padding: 30px;
+        }
+
+        .event-card {
+            background: #0051ff;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 60%;
+            height: 400px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .event-card-content {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .event-card-content h3 {
+            color: #0c0136;
+            margin-bottom: 15px;
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .event-card-content p {
+            margin-bottom: 10px;
+        }
+
+        .event-card-content button {
+            background: #000000;
+            border: none;
+            padding: 10px 15px;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .event-card-content .label {
+            background: #ff0505;
+            color: #000000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            min-width: 100px;
+            font-size: 12px;
+            text-align: center;
+            font-weight: lighter;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .event-card:nth-child(odd) .event-card-content {
+            align-items: flex-end;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .event-card:nth-child(even) .event-card-content {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .faq-section {
+            margin: 40px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+        }
+
+        .faq {
+            margin-bottom: 10px;
+        }
+
+        .faq button {
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+        }
+
+        .faq-content {
+            display: none;
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            margin-top: 40px;
+        }
+
+        .navbar, .hero, .events, .faq-section, .footer {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">Cabinet Vittoria</div>
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="#" class="active">Calendar</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Calendar</h1>
+        <p>Stay updated with upcoming events and competitions happening across campus.</p>
+    </div>
+
+    <div class="events" id="events-container"></div>
+
+    <div class="faq-section">
+        <h2>FAQs</h2>
+        <div class="faq">
+            <button onclick="toggleFAQ(0)">What is the Event Calendar?</button>
+            <div class="faq-content">The Event Calendar helps you track all upcoming activities on campus.</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(1)">What if an event is postponed or canceled?</button>
+            <div class="faq-content">You'll receive updates and notifications about any changes.</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(2)">How can a club add an event to the calendar?</button>
+            <div class="faq-content">Clubs can contact the administration to add events.</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Cabinet Vittoria | Innovate, Foster, Unite</p>
+    </div>
+
+    <script>
+        const events = [
+            { title: "Hack VIT 2025", date: "February 19, 2025", location: "VIT Auditorium" },
+            { title: "Dance Fiesta", date: "February 22, 2025", location: "Main Hall" },
+            { title: "Investment Bootcamp", date: "March 5, 2025", location: "Seminar Room 3" },
+            { title: "TEDxVIT Pune 2025", date: "March 10, 2025", location: "Conference Hall" },
+            { title: "Aero Design Challenge", date: "March 20, 2025", location: "Open Lawn" },
+            { title: "VIT Pune MUN 2025", date: "April 5, 2025", location: "Main Hall" }
+        ];
+
+        const eventsContainer = document.getElementById('events-container');
+        
+        events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <img src="https://via.placeholder.com/400x200?text=${event.title}" alt="${event.title}">
+                <div class="event-card-content">
+                    <div class="label">Event</div>
+                    <h3>${event.title}</h3>
+                    <p><b>Date:</b> ${event.date}</p>
+                    <p><b>Location:</b> ${event.location}</p>
+                    <button>Know More</button>
+                </div>
+            `;
+            eventsContainer.appendChild(eventCard);
+        });
+
+        function toggleFAQ(index) {
+            const faqContents = document.querySelectorAll('.faq-content');
+            const currentContent = faqContents[index];
+            
+            faqContents.forEach((content, i) => {
+                if (i !== index) {
+                    content.style.display = 'none';
+                }
+            });
+
+            currentContent.style.display = 
+                currentContent.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
