@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT toria</title>
+    <link rel="icon" type="image/png" href="icons8-arrow-32.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .club-card {
+            width: 380px;
+            height: 680px;
+            margin: 30px;
+            transition: transform 0.3s ease;
+            font-family: 'Lexend Deca', sans-serif;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #111;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            background: #222;
+            border-radius: 5px;
+        }
+
+        
+        .club-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .club-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0 auto 20px;
+        }
+        .club-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin-bottom: 60px;
+        }
+        .swiper-container {
+            width: 100%;
+            padding: 30px 0;
+            position: relative;
+            background: #f8f8f8;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: #333333;
+        }
+        .swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .intro-section {
+            height: 500px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        .welcome-text {
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .welcome-text span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInLetter 0.1s ease-out forwards;
+        }
+        @keyframes fadeInLetter {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .description-text {
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 0.9;
+            }
+        }
+
+        /* FAQ Styles */
+        .faq-section {
+            padding: 4rem 2rem;
+            background: #f8f8f8;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1rem;
+            background: #1a1a1a;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .faq-answer.active {
+            padding: 1rem;
+            max-height: 200px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #111111;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: opacity 0.3s ease;
+        }
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        .address-section {
+            max-width: 300px;
+        }
+        .map-link {
+            color: #ffffff;
+            text-decoration: underline;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="navbar">
+        <div class="brand" style="color: #ffffff;">Cabinet Vittoria</div>
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="calendar.html" class="active">Calendar</a>
+        </div>
+    </div>
+
+    <div class="intro-section">
+        <h1 class="welcome-text text-5xl font-bold mb-8" id="welcome-text"></h1>
+        <p class="description-text text-xl">
+            We offer a diverse range of clubs to help you explore your interests, develop new skills, and connect with like-minded individuals. 
+            Whether you're passionate about technology, arts, sports, or academics, there's a perfect club waiting for you.
+            Join us in creating unforgettable experiences and lasting friendships.
+        </p>
+    </div>
+
+    <div id="root" class="px-12"></div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How can I join a club? <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Click on the "Know More" button on any club card and follow the registration process.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Can I be part of multiple clubs? <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, you can join multiple clubs based on your interests and time availability.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Are there any membership fees? <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Membership fees vary by club. Contact the club coordinator for specific details.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What is the time commitment? <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Time commitment varies by club, typically 2-4 hours per week including meetings and activities.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I start a new club? <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Submit a proposal to the student activities office with your club concept and required documentation.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">Cabinet Vittoria</div>
+            <div class="footer-subtitle">Innovate · Foster · Unite</div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/vit_pune_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="www.youtube.com/@VITstudentactivities" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/school/vishwakarma-institute-of-technology-pune/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <div class="address-section">
+                <p>Vishwakarma Institute Of Technology</p>
+                <p>666, Upper Indira Nagar,</p>
+                <p>Bibwewadi, Pune - 411 037</p>
+                <a href="https://maps.app.goo.gl/SawgpL194hp5iwFK9" target="_blank" class="map-link">Get on Maps</a>
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        // Add letter-by-letter animation
+        const text = "W e l c o m e ⠀ T o ⠀ V I T ⠀ C l u b s";
+        const welcomeText = document.getElementById('welcome-text');
+        
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.animationDelay = `${i * 0.1}s`;
+            welcomeText.appendChild(span);
+        });
+
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.toggle');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                answer.classList.add('active');
+                toggle.textContent = '-';
+            }
+        }
+
+        const { useEffect, useState } = React;
+
+        function ClubsPage() {
+            const [clubs] = useState([
+                { 
+                    name: "Team EPEC", 
+                    description: "The Event Planning and Execution Committee (EPEC) is the Student Council at Vishwakarma Institute of Technology (VIT), Pune, responsible for organizing the institute's flagship events. Their vision is to create exemplary events that entertain, enlighten, and inspire people.", 
+                    color: "#1a1a1a",
+                    image: "1.jpg",
+                    link: "https://epecvitpune.in/"
+                },
+                { 
+                    name: "MUN. VIT Pune", 
+                    description: "The VIT Pune Model United Nations (MUN) Society is a prestigious student-led organization at Vishwakarma Institute of Technology, Pune. It provides a platform for students to engage in simulations of United Nations conferences .", 
+                    color: "#333333",
+                    image: "2.jpg",
+                    link: "https://www.instagram.com/vitpunemunsoc/"
+                },
+                { 
+                    name: "TED X VIT", 
+                    description: "TEDxVITPune is an independently organized TEDx event hosted by the Vishwakarma Institute of Technology (VIT) in Pune. Established in April 2015, it has evolved into a premier platform for disseminating 'Ideas Worth Spreading' within the local community.", 
+                    color: "#1a1a1a",
+                    image: "3.jpg",
+                    link: "https://www.tedxvitpune.org/"
+                },
+                { 
+                    name: "Microsoft Learn Student Club", 
+                    description: "The Microsoft Learn Student Club (MLSC) at Vishwakarma Institute of Technology (VIT), Pune, is a technical society dedicated to elevating the coding culture within the institute.", 
+                    color: "#333333",
+                    image: "4.jpg",
+                    link: "https://mlsc-vit-pune.vercel.app/"
+                },
+                { 
+                    name: "Developers Student Club", 
+                    description: "The Developer Student Club (DSC) at Vishwakarma Institute of Technology (VIT), Pune, is a community-driven initiative aimed at fostering innovation and technical proficiency among students.", 
+                    color: "#1a1a1a",
+                    image: "5.jpg",
+                    link: "https://gdscvitpune.netlify.app/"
+                },
+                { 
+                    name: "Zephyr", 
+                    description: "Zephyr is the official dance crew of Vishwakarma Institute of Technology (VIT), Pune. The team is dedicated to expressing themselves through dance.", 
+                    color: "#333333",
+                    image: "6.jpg",
+                    link: "https://www.instagram.com/vit_zephyr/?hl=en"
+                },
+                { 
+                    name: "Team Griffin India", 
+                    description: "Team Griffin India is the official aeromodelling club of Vishwakarma Institute of Technology (VIT), Pune. The team comprises passionate students dedicated to designing, building, and flying unmanned radio-controlled (RC) aircraft and drones.", 
+                    color: "#1a1a1a",
+                    image: "7.jpg",
+                    link: "https://tgi-vitp.netlify.app/"
+                },
+                { 
+                    name: "Team Quark", 
+                    description: "Team Quark is a dynamic technical club at Vishwakarma Institute of Technology (VIT), Pune, dedicated to educating members about emerging technologies and fostering a passion for innovation.", 
+                    color: "#333333",
+                    image: "8.jpg",
+                    link: "https://teamquark.com/"
+                },
+                { 
+                    name: "The Investment Forum", 
+                    description: "The Investment Forum (TIF) is the official investment club of Vishwakarma Institute of Technology (VIT), Pune. Established in 2018, TIF aims to educate students about various financial instruments.", 
+                    color: "#1a1a1a",
+                    image: "9.jpg",
+                    link: "https://www.instagram.com/tifvitpune/"
+                },
+                { 
+                    name: "E-CELL VIT Pune", 
+                    description: "The VIT Entrepreneurship Development Cell (V-EDC) at Vishwakarma Institute of Technology (VIT), Pune, is dedicated to fostering and promoting entrepreneurial spirit among students.", 
+                    color: "#333333",
+                    image: "10.jpg",
+                    link: "https://ecellvitpune.com/"
+                }
+            ]);
+
+            useEffect(() => {
+                new Swiper('.swiper-container-1', {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                    navigation: {
+                        nextEl: '.swiper-button-next-1',
+                        prevEl: '.swiper-button-prev-1',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination-1',
+                        clickable: true,
+                    },
+                });
+
+                new Swiper('.swiper-container-2', {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                    navigation: {
+                        nextEl: '.swiper-button-next-2',
+                        prevEl: '.swiper-button-prev-2',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination-2',
+                        clickable: true,
+                    },
+                });
+            }, []);
+
+            const renderClubCard = (club) => {
+                return React.createElement("div", { 
+                    className: "club-card bg-white rounded-xl shadow-lg p-8 flex flex-col",
+                    style: { borderTop: `4px solid ${club.color}` }
+                },
+                    React.createElement("img", {
+                        src: club.image,
+                        alt: club.name,
+                        className: "club-image"
+                    }),
+                    React.createElement("h2", { className: "text-2xl font-bold mb-4 text-gray-800" }, club.name),
+                    React.createElement("p", { className: "text-gray-600 flex-grow text-base" }, club.description),
+                    React.createElement("a", { 
+                        href: club.link,
+                        target: "_blank",
+                        className: "mt-6 px-6 py-3 rounded-lg text-white font-semibold text-base text-center",
+                        style: { backgroundColor: club.color }
+                    }, "Know More")
+                );
+            };
+
+            return React.createElement("div", { className: "flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6" },
+                React.createElement("h1", { className: "text-4xl font-bold mb-12 text-gray-900 text-left w-full mt-16 animate-fade-in ml-24" }, "Here we GO !"),
+                
+                React.createElement("div", { className: "swiper-container swiper-container-1 w-full mb-16" },
+                    React.createElement("div", { className: "swiper-wrapper" },
+                        clubs.slice(0, 5).map((club, index) => 
+                            React.createElement("div", { className: "swiper-slide", key: index }, renderClubCard(club))
+                        )
+                    ),
+                    React.createElement("div", { className: "swiper-pagination-1" }),
+                    React.createElement("div", { className: "swiper-button-next swiper-button-next-1" }),
+                    React.createElement("div", { className: "swiper-button-prev swiper-button-prev-1" })
+                ),
+                
+                React.createElement("div", { className: "swiper-container swiper-container-2 w-full" },
+                    React.createElement("div", { className: "swiper-wrapper" },
+                        clubs.slice(5, 10).map((club, index) => 
+                            React.createElement("div", { className: "swiper-slide", key: index + 5 }, renderClubCard(club))
+                        )
+                    ),
+                    React.createElement("div", { className: "swiper-pagination-2" }),
+                    React.createElement("div", { className: "swiper-button-next swiper-button-next-2" }),
+                    React.createElement("div", { className: "swiper-button-prev swiper-button-prev-2" })
+                )
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(ClubsPage));
+    </script>
+</body>
+</html>

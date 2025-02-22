@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT toria</title>
+    <link rel="icon" type="image/png" href="icons8-arrow-32.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .welcome-text {
+            font-family: 'League Gothic', sans-serif;
+            font-size: 2.5rem;
+            text-align: left;
+            margin: 3rem 0 0 2rem;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .heading {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #111;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            background: #222;
+            border-radius: 5px;
+        }
+
+
+        .clubs-essential-section {
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            padding: 4rem 8rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 6rem auto;
+            max-width: 80%;
+        }
+
+        .clubs-essential-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .clubs-essential-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #4a90e2, #357abd);
+        }
+
+        .clubs-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .testimonial-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-quote {
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: 1.1rem;
+            color: #2d3748;
+            border-left: 4px solid #4a90e2;
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #4a90e2;
+            opacity: 0.2;
+            position: absolute;
+            left: -1rem;
+            top: -1rem;
+        }
+
+        footer {
+            background: #111111;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #999;
+        }
+
+        .address-section {
+            font-size: 0.9rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .map-link {
+            color: #999;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .map-link:hover {
+            color: white;
+        }
+
+        .report-link {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .report-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="brand" style="color: #ffffff;">Cabinet Vittoria</div>
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="calendar.html" class="active">Calendar</a>
+        </div>
+    </div>
+
+    <div class="flex p-8 bg-gray-100 items-center space-x-12 my-12 mx-8"
+        style="font-family: 'Lexend Deca', sans-serif;">
+        <div class="w-1/2 my-6 mx-6">
+            <h2 class="text-3xl font-bold mb-6">Vishwakarandak 2025</h2>
+            <p class="text-gray-700 leading-relaxed my-4">
+                Vishwakarandak 2025 is the flagship cultural and technical festival of our institution, celebrating
+                creativity, innovation, and talent. This grand event brings together students from across the nation to
+                participate in a diverse range of competitions, workshops, and performances. From technical projects to
+                artistic exhibitions, from musical performances to intellectual debates, Vishwakarandak offers a
+                platform for students to showcase their skills and learn from peers. The festival features over 50
+                events spread across multiple domains, including technology, arts, culture, and sports. With
+                distinguished guests, industry experts, and thousands of participants, Vishwakarandak 2025 promises to
+                be an unforgettable celebration of youth talent and innovation.
+            </p>
+        </div>
+        <div class="w-1/2 my-6 mx-6">
+            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3" alt="College Event"
+                class="w-full h-96 object-cover rounded-lg">
+        </div>
+    </div>
+    <div class="flex p-8 bg-gray-100 items-center space-x-12 my-12 mx-8"
+        style="font-family: 'Lexend Deca', sans-serif;">
+        <div class="w-1/2 my-6 mx-6">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3" alt="Music Festival"
+                class="w-full h-96 object-cover rounded-lg">
+        </div>
+        <div class="w-1/2 my-6 mx-6">
+            <h2 class="text-3xl font-bold mb-6">Crescendo 2025</h2>
+            <p class="text-gray-700 leading-relaxed my-4">
+                Crescendo 2025 is our annual musical extravaganza that celebrates the harmony of diverse musical
+                traditions and contemporary innovations. This spectacular event features performances from talented
+                musicians, both students and professionals, showcasing various genres from classical to contemporary.
+                The festival includes solo performances, band competitions, musical workshops, and collaborative
+                performances that bring together different musical styles. With state-of-the-art sound systems,
+                professional staging, and an audience of music enthusiasts, Crescendo 2025 promises to be a melodious
+                journey that will leave everyone spellbound. The event also features masterclasses by renowned
+                musicians, giving participants a unique opportunity to learn from the best in the industry.
+            </p>
+        </div>
+    </div>
+    <div class="flex p-8 bg-gray-100 items-center space-x-12 my-12 mx-8"
+        style="font-family: 'Lexend Deca', sans-serif;">
+        <div class="w-1/2 my-6 mx-6">
+            <h2 class="text-3xl font-bold mb-6">Vishwa Tech Spectra 2025</h2>
+            <p class="text-gray-700 leading-relaxed my-4">
+                It provides a platform for students from diverse backgrounds to showcase their talent, creativity, and
+                technical prowess. With over 25 meticulously planned events, categorized into six domains, this
+                three-day extravaganza promises to be an unforgettable experience,The objective of this event is to
+                foster innovation. We believe that innovation is the driving force behind progress, and it is essential
+                to nurture the innovative spirit among our youth
+            </p>
+        </div>
+        <div class="w-1/2 my-6 mx-6">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3"
+                alt="Cultural Festival" class="w-full h-96 object-cover rounded-lg">
+        </div>
+    </div>
+
+    <div class="clubs-essential-section mt-12 my-8 mx-8">
+        <h2 class="clubs-essential-title text-center">Why Clubs are Essential</h2>
+        <p class="clubs-description text-center">
+            Clubs play a vital role in student development by providing opportunities for leadership, skill-building,
+            and community engagement. They offer a platform for students to pursue their passions, develop soft skills,
+            and create lasting friendships. Through club activities, students learn teamwork, time management, and gain
+            practical experience that complements their academic learning.
+        </p>
+        <div class="testimonial-container">
+            <blockquote class="testimonial-quote">
+                "Joining clubs was the best decision I made in college. It helped me discover my passion and meet
+                amazing people who share similar interests." - Raghav Kelkar
+            </blockquote>
+            <blockquote class="testimonial-quote">
+                "Clubs provide a unique platform where students can apply classroom knowledge to real-world projects and
+                initiatives." - Prof. Vikas Dixit
+            </blockquote>
+            <blockquote class="testimonial-quote">
+                "The skills and connections I gained through club activities were instrumental in landing my dream job."
+                - Arun Giri, Alumni
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="flex p-8 bg-gray-100 items-center space-x-12 my-12 mx-8"
+        style="font-family: 'Lexend Deca', sans-serif;">
+        <div class="w-1/2 my-6 mx-6">
+            <img src="https://img.freepik.com/free-vector/business-team-putting-together-jigsaw-puzzle-isolated-flat-vector-illustration-cartoon-partners-working-connection-teamwork-partnership-cooperation-concept_74855-9814.jpg"
+                alt="Who We Are" class="w-full h-96 object-cover rounded-lg">
+        </div>
+        <div class="w-1/2 my-6 mx-6">
+            <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
+            <p class="text-gray-700 leading-relaxed my-4">
+                Cabinet Vittoria is the student governing body at Vishwakarma Institute of Technology, dedicated to
+                fostering leadership, innovation, and community engagement. Established with a vision to create a
+                vibrant campus life, we serve as the bridge between students and administration, organizing various
+                cultural, technical, and social events throughout the academic year. Our team comprises passionate
+                student leaders who work tirelessly to enhance the college experience for every student. We believe in
+                creating opportunities that help students develop both personally and professionally. Through our
+                initiatives, we aim to build a strong, inclusive community that celebrates diversity, encourages
+                creativity, and prepares students for future challenges.
+            </p>
+        </div>
+    </div>
+
+    <div class="flex p-8 bg-gray-100 items-center space-x-12 my-12 mx-8"
+        style="font-family: 'Lexend Deca', sans-serif;">
+        <div class="w-1/2 my-6 mx-6">
+            <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3" alt="Contact Us"
+                class="w-full h-96 object-cover rounded-lg">
+        </div>
+        <div class="w-1/2 my-6 mx-6">
+            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+            <p class="text-gray-700 leading-relaxed my-4">
+                We'd love to hear from you! Whether you have questions about our clubs, events, or just want to get in
+                touch, feel free to reach out to us.
+            </p>
+            <div class="mt-6">
+                <p class="text-lg font-semibold">Send us an email:</p>
+                <a href="mailto:cabineetvittoria@gmail.com"
+                    class="text-blue-600 hover:text-blue-800">cabineetvittoria@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">Cabinet Vittoria</div>
+            <div class="footer-subtitle">Innovate · Foster · Unite</div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/vit_pune_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="www.youtube.com/@VITstudentactivities" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/school/vishwakarma-institute-of-technology-pune/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <div class="address-section">
+                <p>Vishwakarma Institute Of Technology</p>
+                <p>666, Upper Indira Nagar,</p>
+                <p>Bibwewadi, Pune - 411 037</p>
+                <a href="https://maps.app.goo.gl/SawgpL194hp5iwFK9" target="_blank" class="map-link">Get on Maps</a>
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>

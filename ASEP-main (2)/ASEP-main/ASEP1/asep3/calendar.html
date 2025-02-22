@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT toria</title>
+    <link rel="icon" type="image/png" href="icons8-arrow-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0D0D0D;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #111;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            background: #222;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+        background-color: #5d00ff;
+        transform: scale(1.03);
+        }
+        footer {
+            background: #111111;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: opacity 0.3s ease;
+        }
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        .address-section {
+            max-width: 300px;
+        }
+        .map-link {
+            color: #ffffff;
+            text-decoration: underline;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .hero {
+            height: 300px;
+            margin: 60px 0;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #000000, #000000);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .hero h1 {
+            margin-bottom: 25px;
+            font-size: 36px;
+            background: linear-gradient(45deg, #FF4500, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ffffff;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .events {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            padding: 30px;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #FF4500, #FF8C00);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 60%;
+            height: 400px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.4);
+        }
+
+        .event-card img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px !important;
+            padding: 22px;
+        }
+
+        .event-card-content {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .event-card-content h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .event-card-content p {
+            margin-bottom: 10px;
+        }
+
+        .event-card-content button {
+            background: #000000;
+            border: none;
+            padding: 10px 15px;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .event-card:nth-child(odd) .event-card-content {
+            align-items: flex-end;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .event-card:nth-child(even) .event-card-content {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .faq-section {
+            margin: 60px auto;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+
+        .faq {
+            margin-bottom: 25px;
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq button {
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            border: none;
+            background: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq button:hover {
+            background-color: #333;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .faq-content.active {
+            max-height: 200px;
+            padding: 15px 20px;
+        }
+
+        
+        .navbar, .hero, .events, .faq-section, .footer {
+            padding: 20px;
+        }
+
+        img {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">Cabinet Vittoria</div>
+        <div class="nav-links">
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="#" class="active">Calendar</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1 style="font-family: 'Lexend Deca', sans-serif;color: #ddd;letter-spacing: -2px;" >Event Calendar</h1>
+        <p>Discover the pulse of VIT Pune through our dynamic event calendar. Stay connected with a curated collection of technical workshops, cultural festivals, academic seminars, and sports tournaments. Our calendar is your gateway to endless opportunities for learning, growth, and engagement within our vibrant campus community. Browse through upcoming events and mark your calendar for experiences that will shape your academic journey.</p>
+    </div>
+
+    <div class="events" id="events-container"></div>
+
+    <div class="faq-section">
+        <h2>FAQs</h2>
+        <div class="faq">
+            <button onclick="toggleFAQ(0)">What is the Event Calendar?</button>
+            <div class="faq-content">The Event Calendar helps you track all upcoming activities on campus.</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(1)">How are event changes handled?</button>
+            <div class="faq-content">You'll receive updates by the respective clubs.</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(2)">How to add an event?</button>
+            <div class="faq-content">Contact or Mail us to add events, based on Identity verification we will add shortly</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(3)">Can I get reminders for events?</button>
+            <div class="faq-content">Yes, you can enable notifications from respective clubs to receive reminders before each event.</div>
+        </div>
+        <div class="faq">
+            <button onclick="toggleFAQ(4)">Is registration required for all events?</button>
+            <div class="faq-content">Registration requirements vary by event. Check individual event details for specific information.</div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-title">Cabinet Vittoria</div>
+            <div class="footer-subtitle">Innovate · Foster · Unite</div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/vit_pune_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="www.youtube.com/@VITstudentactivities" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/school/vishwakarma-institute-of-technology-pune/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <div class="address-section">
+                <p>Vishwakarma Institute Of Technology</p>
+                <p>666, Upper Indira Nagar,</p>
+                <p>Bibwewadi, Pune - 411 037</p>
+                <a href="https://maps.app.goo.gl/SawgpL194hp5iwFK9" target="_blank" class="map-link">Get on Maps</a>
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+        const events = [
+            { 
+                title: "Hack VIT 2025", 
+                date: "February 19, 2025", 
+                location: "VIT Auditorium", 
+                image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3",
+                link: "https://gdscvitpune.netlify.app/events"
+            },
+            { 
+                title: "Dance Fiesta", 
+                date: "February 22, 2025", 
+                location: "Main Hall", 
+                image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSdX6QVBrMktdTBQRiEH08uG3pKujhlsYR2kGCOoHn5yilsVcg/closedform"
+            },
+            { 
+                title: "Investment Bootcamp", 
+                date: "March 5, 2025", 
+                location: "Seminar Room 3", 
+                image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3",
+                link: "https://meet.google.com/tjd-pdtf-jfa"
+            },
+            { 
+                title: "TEDxVIT Pune 2025", 
+                date: "March 10, 2025", 
+                location: "Conference Hall", 
+                image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3",
+                link: "https://www.tedxvitpune.org/"
+            },
+            { 
+                title: "Aero Design Challenge", 
+                date: "March 20, 2025", 
+                location: "Open Lawn", 
+                image: "https://images.unsplash.com/photo-1534996858221-380b92700493?ixlib=rb-4.0.3",
+                link: "https://www.instagram.com/teamgriffinindia/"
+            },
+            { 
+                title: "VIT Pune MUN 2025", 
+                date: "April 5, 2025", 
+                location: "Main Hall", 
+                image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3",
+                link: "https://linktr.ee/vitpunemunsociety"
+            }
+        ];
+
+        const eventsContainer = document.getElementById('events-container');
+        
+        events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <img src="${event.image}" alt="${event.title}" style="border-radius: 20px;">
+                <div class="event-card-content">
+                    <h3>${event.title}</h3>
+                    <p><b>Date:</b> ${event.date}</p>
+                    <p><b>Location:</b> ${event.location}</p>
+                    <button onclick="window.location.href='${event.link}'">Know More</button>
+                </div>
+            `;
+            eventsContainer.appendChild(eventCard);
+        });
+
+        function toggleFAQ(index) {
+            const faqButtons = document.querySelectorAll('.faq button');
+            const faqContents = document.querySelectorAll('.faq-content');
+            
+            faqButtons.forEach((button, i) => {
+                if (i === index) {
+                    button.classList.toggle('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            faqContents.forEach((content, i) => {
+                if (i === index) {
+                    content.classList.toggle('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
